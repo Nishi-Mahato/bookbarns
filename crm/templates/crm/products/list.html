@@ -1,0 +1,22 @@
+{% extends "crm/base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Used Books{% endif %}
+{% endblock %}
+
+{% block content %}
+
+  <div id="main" class="product-list">
+    <h1 align="center">{% if category %}{{ category.name }}{% else %}Used Books{% endif %}</h1>
+    {% for service in services %}
+      <div class="item">
+        <a href="{{ service.get_absolute_url }}">
+          <img src="{% if service.image %}{{ service.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        </a>
+        <h5><a href="{{ service.get_absolute_url }}">{{ service.name }}</a></h5>
+        <h5>${{ service.price }}</h5><br><br>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "crm/base.html" %}
+{% load static %}
+
+{% block title %}
+  {{ service.name }}
+{% endblock %}
+
+{% block content %}
+  <div class="product-detail">
+    <img src="{% if service.image %}{{ service.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+    <h1>{{ service.name }}</h1>
+      <h3><strong>Category :</strong> {{ service.category }}</h3>
+    <h3 class="price"><strong> Price :</strong> ${{ service.price }}</h3>
+      <h3><strong>Author Name : </strong>{{ service.author }}</h3>
+      <h3><strong>Book Edition :</strong> {{ service.edition }}</h3>
+      <h3><strong>Seller's Name : </strong>{{ service.sellername }}</h3>
+      <h3><strong>Seller's Email : </strong>{{ service.selleremail }}</h3>
+
+        <h3><a href="{% url 'crm:book_share' service.id %}">Email</a></h3>
+
+      <h3> <strong>Seller's Contact Number : </strong>{{ service.sellerphone }}</h3>
+  </div>
+{% endblock %}

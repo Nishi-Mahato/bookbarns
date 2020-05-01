@@ -1,0 +1,38 @@
+{% extends "crm/base.html" %}
+{% load static %}
+
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+                <div class="links">
+                    <!-- Example row of columns -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="{% static "images/NewBooks.png" %}" alt="NewBooks"/>
+                                <div class="caption">
+                                    <h2>New Books</h2>
+                                    <p>Browse and buy new books.</p>
+
+                                    <p align = "center"><a class="btn btn-default" href="{% url 'shop:product_list' %}" role="button"><strong>View details</strong></a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img src="{% static "images/UsedBooks.jpg" %}" alt="UsedBooks"/>
+                                <div class="caption">
+                                    <h2>Used Books</h2>
+                                    <p>Browse and buy used books.</p>
+                                    <p align = "center"><a class="btn btn-default" href="{% url 'crm:book_list' %}" role="button"><strong>View details</strong></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+    </div>
+
